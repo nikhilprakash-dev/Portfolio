@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nikhil Prakash — Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background: #fff;
+      color: #000;
+      padding: 60px 70px;
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 12pt;
+      line-height: 1.4;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-size: 22pt;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 10pt;
+      margin-top: 4px;
+    }
+
+    /* ── NAV (quick-jump) — hidden visually, semantic ── */
+    nav {
+      display: none;
+    }
+
+    /* ── HR ── */
+    hr {
+      border: none;
+      border-top: 1.5px solid #000;
+      margin: 8px 0;
+    }
+
+    hr.thin {
+      border-top: 0.5px solid #000;
+      margin: 4px 0 6px 0;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    section > h2 {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 14px;
+      margin-bottom: 3px;
+    }
+
+    /* ── ARTICLE (each project / edu block) ── */
+    article {
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    article h3 {
+      font-size: 11pt;
+      font-weight: bold;
+      display: inline;
+    }
+
+    article h4 {
+      font-size: 10.5pt;
+      font-style: italic;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    /* ── ROW (title + date side by side) ── */
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .row span.date {
+      font-size: 10pt;
+      white-space: nowrap;
+    }
+
+    /* ── PARAGRAPHS ── */
+    p { font-size: 11pt; margin-bottom: 4px; }
+
+    /* ── LISTS ── */
+    ul, ol {
+      font-size: 11pt;
+      margin-left: 20px;
+      margin-top: 4px;
+    }
+
+    ul li, ol li { margin-bottom: 3px; }
+
+    ul.skills-list {
+      columns: 2;
+      column-gap: 30px;
+      list-style: disc;
+    }
+
+    /* ── TABLE (soft skills) ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11pt;
+      margin-top: 6px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+      padding: 4px 8px 4px 0;
+      width: 33%;
+    }
+
+    td {
+      padding: 4px 8px 4px 0;
+      vertical-align: top;
+    }
+
+    /* ── ASIDE (languages) ── */
+    aside {
+      margin-top: 6px;
+      font-size: 11pt;
+    }
+
+    /* ── FIGURE / FIGCAPTION (certifications) ── */
+    figure {
+      margin: 4px 0 4px 0;
+      padding: 6px 10px;
+      border-left: 3px solid #000;
+    }
+
+    figcaption {
+      font-size: 10pt;
+      font-style: italic;
+      color: #333;
+      margin-top: 2px;
+    }
+
+    /* ── DETAILS / SUMMARY (declaration toggle) ── */
+    details {
+      margin-top: 6px;
+      font-size: 11pt;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 11pt;
+    }
+
+    details p {
+      margin-top: 5px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11pt;
+    }
+
+    /* ── H5, H6 used for sub-labels ── */
+    h5 {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }
+
+    h6 {
+      font-size: 10pt;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      body { padding: 40px 50px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <h1>Nikhil Prakash</h1>
+    <p>
+      +91 85479 12600 &nbsp;|&nbsp; nikhilprakash.dev@gmail.com &nbsp;|&nbsp; Pattambi, Palakkad, Kerala
+      <br/>
+      linkedin.com/in/nikhilprakash-dev &nbsp;|&nbsp; github.com/nikhilprakash-dev
+    </p>
+  </header>
+
+  <hr/>
+
+  <!-- ═══ NAV (semantic, hidden) ═══ -->
+  <nav>
+    <ol>
+      <li><a href="#objective">Objective</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#activities">Extracurricular</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#declaration">Declaration</a></li>
+    </ol>
+  </nav>
+
+  <!-- ═══ OBJECTIVE ═══ -->
+  <section id="objective">
+    <h2>Objective</h2>
+    <hr class="thin"/>
+    <p>
+      First-year B.Tech student in Electronics and Instrumentation Engineering at FISAT, Angamaly
+      (Batch of 2029), with hands-on experience in IoT systems and UI/UX design. Seeking to apply
+      skills in sensor-driven solutions and intuitive interface design to real-world engineering
+      challenges through collaborative technical projects.
+    </p>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education">
+    <h2>Education</h2>
+    <hr class="thin"/>
+
+    <article>
+      <div class="row">
+        <h3>Federal Institute of Science and Technology (FISAT)</h3>
+        <span class="date">2025 – 2029</span>
+      </div>
+      <h4>B.Tech, Electronics and Instrumentation Engineering &nbsp;·&nbsp; CGPA: 8.47 &nbsp;·&nbsp; Angamaly, Kerala</h4>
+      <ul>
+        <li>Member, ISTE — Indian Society for Technical Education (2025–2029)</li>
+        <li>Member, IDEA — Instrumentation Dextrous Etudious Association (2025–2029)</li>
+      </ul>
+    </article>
+
+    <article>
+      <div class="row">
+        <h3>Higher Secondary Education — Science (PCMB)</h3>
+        <span class="date">Graduated 2025</span>
+      </div>
+      <h4>Govt. Higher Secondary School (GHSS), Pattambi &nbsp;·&nbsp; Grade: 92.17%</h4>
+      <ul>
+        <li>Class Representative and NSS Volunteer (2023–2025)</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ═══ TECHNICAL SKILLS ═══ -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <hr class="thin"/>
+
+    <h5>Programming &amp; Design</h5>
+    <ul class="skills-list">
+      <li>Python (Basic)</li>
+      <li>HTML &amp; CSS (Basic)</li>
+      <li>Figma — UI/UX Prototyping &amp; Wireframing</li>
+      <li>Arduino Programming</li>
+    </ul>
+
+    <h5>Hardware &amp; Core</h5>
+    <ul class="skills-list">
+      <li>ESP8266 / ESP32</li>
+      <li>LDR &amp; PIR Sensors</li>
+      <li>Circuit Analysis</li>
+      <li>Instrumentation Fundamentals</li>
+    </ul>
+
+    <h5>Soft Skills</h5>
+    <h6>Key interpersonal and professional strengths</h6>
+    <table>
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Skill</th>
+          <th>Skill</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Problem Solving</td>
+          <td>Team Collaboration</td>
+          <td>Quick Learning</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <hr class="thin"/>
+
+    <article>
+      <div class="row">
+        <h3>Smart IoT Night Light for Elderly</h3>
+        <span class="date">FISAT</span>
+      </div>
+      <h4>ESP8266 &nbsp;·&nbsp; Arduino IDE &nbsp;·&nbsp; LDR Sensor &nbsp;·&nbsp; PIR Sensor</h4>
+      <ul>
+        <li>Built an ESP8266-based automated night light using LDR and PIR sensors to assist elderly users in low-light navigation.</li>
+        <li>Implemented environment-aware logic to trigger lighting only on motion detection, reducing unnecessary power consumption.</li>
+      </ul>
+    </article>
+
+    <article>
+      <div class="row">
+        <h3>Solar Coconut Dryer</h3>
+        <span class="date">FISAT</span>
+      </div>
+      <h4>Passive Solar Thermal Design</h4>
+      <ul>
+        <li>Designed and prototyped a solar-powered drying system targeted at medium-scale farmers to reduce post-harvest losses.</li>
+        <li>Eliminated dependency on conventional energy sources through passive solar thermal design, lowering operational costs.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ═══ EXTRACURRICULAR ═══ -->
+  <section id="activities">
+    <h2>Extracurricular Activities</h2>
+    <hr class="thin"/>
+    <ul>
+      <li>Member, ISTE — Indian Society for Technical Education, FISAT (2025–2029).</li>
+      <li>Member, IDEA — Instrumentation Dextrous Etudious Association, FISAT (2025–2029).</li>
+      <li>Poster Designer for college events and club campaigns.</li>
+      <li>Media Team Member — College Technical Fest.</li>
+      <li>Design Team Member — College Club.</li>
+      <li>NSS Volunteer — National Service Scheme, GHSS Pattambi (2023–2025).</li>
+    </ul>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <hr class="thin"/>
+
+    <figure>
+      <p><strong>Arduino Workshop</strong></p>
+      <figcaption>FISAT, Angamaly &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; [Certificate]</figcaption>
+    </figure>
+
+    <figure>
+      <p><strong>Figma UI/UX Design Workshop</strong></p>
+      <figcaption>Online &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; [Certificate]</figcaption>
+    </figure>
+  </section>
+
+  <!-- ═══ LANGUAGES (aside) ═══ -->
+  <section id="languages">
+    <h2>Languages Known</h2>
+    <hr class="thin"/>
+    <aside>
+      <p>English &nbsp;·&nbsp; Malayalam</p>
+    </aside>
+  </section>
+
+  <!-- ═══ DECLARATION (details/summary) ═══ -->
+  <section id="declaration">
+    <h2>Declaration</h2>
+    <hr class="thin"/>
+    <details open>
+      <summary>Read Declaration</summary>
+      <p>
+        I hereby declare that all the information provided above is true and correct to the best of
+        my knowledge and belief.
+      </p>
+    </details>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span>Place: Palakkad, Kerala</span>
+    <span><strong>Nikhil Prakash</strong></span>
+  </footer>
+
+</body>
+</html>
