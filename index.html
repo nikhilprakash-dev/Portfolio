@@ -3,399 +3,670 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nikhil Prakash — Resume</title>
+  <title>Nikhil Prakash — Portfolio Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,800;1,400&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Times New Roman', Times, serif;
-      background: #fff;
-      color: #000;
-      padding: 60px 70px;
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: 12pt;
-      line-height: 1.4;
+    :root {
+      --cream: #F0EDE4;
+      --cream-dark: #E2DDD2;
+      --ink: #1A1A18;
+      --ink-mid: #4A4A44;
+      --ink-light: #8A8A80;
+      --accent: #C84B2F;
+      --white: #FAFAF6;
     }
 
-    /* ── HEADER ── */
-    header {
-      text-align: center;
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: #D0CBC0;
+      color: var(--ink);
+      margin: 0;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── SLIDE wrapper ── */
+    .slide {
+      background: var(--cream);
+      max-width: 860px;
+      margin: 0 auto 24px;
+      padding: 52px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* brush corner marks */
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 70px; height: 70px;
+      background: var(--ink);
+      clip-path: polygon(100% 0, 100% 100%, 0 0);
+      opacity: 0.85;
+    }
+
+    /* x x x decorative marks */
+    .xmarks {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .xmarks span {
+      font-size: 12px;
+      color: var(--ink-mid);
+      letter-spacing: 2px;
+    }
+
+    /* ── SLIDE 1: COVER ── */
+    .cover { text-align: left; min-height: 280px; }
+
+    .cover .xmarks { margin-bottom: 6px; }
+
+    .cover h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 14px 0 22px;
+    }
+
+    .cover .year-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--ink-mid);
+      letter-spacing: 1px;
+    }
+
+    .cover .year-bar hr {
+      flex: 1;
+      border: none;
+      border-top: 1.5px solid var(--ink-mid);
+    }
+
+    .cover .tagline {
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--ink-mid);
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    /* ── SLIDE 2: ABOUT ME ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .profile-frame {
+      background: var(--cream-dark);
+      border: 2px solid var(--ink);
+      padding: 8px;
+      position: relative;
+    }
+
+    .profile-frame::before {
+      content: '● ● ●';
+      display: block;
+      font-size: 10px;
+      color: var(--ink-mid);
+      letter-spacing: 3px;
       margin-bottom: 6px;
     }
 
-    header h1 {
-      font-size: 22pt;
-      font-weight: bold;
+    .profile-frame::after {
+      content: 'about me';
+      display: block;
+      font-size: 9px;
       letter-spacing: 2px;
       text-transform: uppercase;
-    }
-
-    header p {
-      font-size: 10pt;
-      margin-top: 4px;
-    }
-
-    /* ── NAV (quick-jump) — hidden visually, semantic ── */
-    nav {
-      display: none;
-    }
-
-    /* ── HR ── */
-    hr {
-      border: none;
-      border-top: 1.5px solid #000;
-      margin: 8px 0;
-    }
-
-    hr.thin {
-      border-top: 0.5px solid #000;
-      margin: 4px 0 6px 0;
-    }
-
-    /* ── SECTION HEADINGS ── */
-    section > h2 {
-      font-size: 11pt;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 14px;
-      margin-bottom: 3px;
-    }
-
-    /* ── ARTICLE (each project / edu block) ── */
-    article {
-      margin-top: 6px;
-      margin-bottom: 10px;
-    }
-
-    article h3 {
-      font-size: 11pt;
-      font-weight: bold;
-      display: inline;
-    }
-
-    article h4 {
-      font-size: 10.5pt;
-      font-style: italic;
-      font-weight: normal;
-      margin-bottom: 5px;
-    }
-
-    /* ── ROW (title + date side by side) ── */
-    .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2px;
-    }
-
-    .row span.date {
-      font-size: 10pt;
-      white-space: nowrap;
-    }
-
-    /* ── PARAGRAPHS ── */
-    p { font-size: 11pt; margin-bottom: 4px; }
-
-    /* ── LISTS ── */
-    ul, ol {
-      font-size: 11pt;
-      margin-left: 20px;
-      margin-top: 4px;
-    }
-
-    ul li, ol li { margin-bottom: 3px; }
-
-    ul.skills-list {
-      columns: 2;
-      column-gap: 30px;
-      list-style: disc;
-    }
-
-    /* ── TABLE (soft skills) ── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 11pt;
-      margin-top: 6px;
-    }
-
-    th {
-      text-align: left;
-      font-weight: bold;
-      border-bottom: 1px solid #000;
-      padding: 4px 8px 4px 0;
-      width: 33%;
-    }
-
-    td {
-      padding: 4px 8px 4px 0;
-      vertical-align: top;
-    }
-
-    /* ── ASIDE (languages) ── */
-    aside {
-      margin-top: 6px;
-      font-size: 11pt;
-    }
-
-    /* ── FIGURE / FIGCAPTION (certifications) ── */
-    figure {
-      margin: 4px 0 4px 0;
-      padding: 6px 10px;
-      border-left: 3px solid #000;
-    }
-
-    figcaption {
-      font-size: 10pt;
-      font-style: italic;
-      color: #333;
-      margin-top: 2px;
-    }
-
-    /* ── DETAILS / SUMMARY (declaration toggle) ── */
-    details {
-      margin-top: 6px;
-      font-size: 11pt;
-    }
-
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 11pt;
-    }
-
-    details p {
-      margin-top: 5px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      margin-top: 30px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 11pt;
-    }
-
-    /* ── H5, H6 used for sub-labels ── */
-    h5 {
-      font-size: 10.5pt;
-      font-weight: bold;
+      color: var(--ink-light);
+      text-align: center;
       margin-top: 8px;
+    }
+
+    .profile-avatar {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--cream);
+      letter-spacing: 2px;
+    }
+
+    .about-info h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
       margin-bottom: 2px;
     }
 
-    h6 {
-      font-size: 10pt;
-      font-weight: normal;
-      font-style: italic;
+    .about-info .role {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .about-info p {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .contact-block {
+      border-top: 1.5px solid var(--ink);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .contact-block .label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .contact-items {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--ink-mid);
+    }
+
+    /* ── SLIDE 3: SKILLS ── */
+    .skills-slide h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
       margin-bottom: 4px;
     }
 
+    .skills-slide .sub {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ink-light);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .skill-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+    }
+
+    .skill-group { margin-bottom: 18px; }
+
+    .skill-group h3 {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border-bottom: 1px solid var(--ink-mid);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-group ul li {
+      font-size: 13px;
+      color: var(--ink-mid);
+      padding: 3px 0;
+      border-bottom: 0.5px solid var(--cream-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-group ul li::before {
+      content: '·';
+      font-size: 18px;
+      color: var(--accent);
+      line-height: 0;
+    }
+
+    .corner-label {
+      position: absolute;
+      top: 52px;
+      right: 60px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* ── SLIDE 4: EDUCATION ── */
+    .edu-slide h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .edu-entry {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 24px;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 0.5px solid var(--ink-mid);
+    }
+
+    .edu-entry:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .edu-year {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--cream-dark);
+      -webkit-text-stroke: 1.5px var(--ink-mid);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .edu-details h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .edu-details .inst {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+
+    .edu-details p {
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    .grade-tag {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      margin-top: 6px;
+    }
+
+    /* ── SLIDE 5: PROJECTS ── */
+    .projects-slide h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1.5px solid var(--ink);
+      padding: 20px 24px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 6px; left: 6px;
+      right: -6px; bottom: -6px;
+      background: var(--cream-dark);
+      z-index: -1;
+    }
+
+    .project-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .project-card .stack {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .project-card ul {
+      padding-left: 16px;
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* ── SLIDE 6: ACTIVITIES + CERT ── */
+    .act-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .act-col h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .act-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .act-col ul li {
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      padding: 5px 0;
+      border-bottom: 0.5px solid var(--cream-dark);
+      line-height: 1.5;
+    }
+
+    .cert-item {
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--cream-dark);
+    }
+
+    .cert-item .cert-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .cert-item .cert-meta {
+      font-size: 11px;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    /* ── SLIDE 7: THANK YOU ── */
+    .thankyou {
+      text-align: center;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thankyou h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 70px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin: 16px 0 10px;
+    }
+
+    .thankyou .contact-footer {
+      font-size: 12px;
+      color: var(--ink-mid);
+      margin-top: 18px;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     @media print {
-      body { padding: 40px 50px; }
-      nav { display: none; }
+      body { background: #fff; padding: 0; }
+      .slide { margin: 0; }
+      .slide::before { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .slide { padding: 30px 24px; }
+      .about-grid, .act-grid { grid-template-columns: 1fr; }
+      .cover h1 { font-size: 52px; }
+      .skill-cols { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══ -->
-  <header>
-    <h1>Nikhil Prakash</h1>
-    <p>
-      +91 85479 12600 &nbsp;|&nbsp; nikhilprakash.dev@gmail.com &nbsp;|&nbsp; Pattambi, Palakkad, Kerala
-      <br/>
-      linkedin.com/in/nikhilprakash-dev &nbsp;|&nbsp; github.com/nikhilprakash-dev
+  <!-- ══════════════════════════════════
+       SLIDE 1 — COVER
+  ══════════════════════════════════ -->
+  <div class="slide cover">
+    <div class="xmarks">
+      <span>× × × × ×</span>
+    </div>
+    <div class="xmarks">
+      <span>× × × × ×</span>
+    </div>
+    <h1>Portfolio</h1>
+    <div class="year-bar">
+      <span>2025</span>
+      <hr/>
+      <span>2029</span>
+    </div>
+    <p class="tagline">
+      Electronics &amp; Instrumentation Engineering &nbsp;·&nbsp; FISAT, Angamaly &nbsp;·&nbsp; Batch 2029
     </p>
-  </header>
+  </div>
 
-  <hr/>
+  <!-- ══════════════════════════════════
+       SLIDE 2 — ABOUT ME
+  ══════════════════════════════════ -->
+  <div class="slide">
+    <div class="about-grid">
+      <div class="profile-frame">
+        <div class="profile-avatar">NP</div>
+      </div>
+      <div class="about-info">
+        <div class="xmarks" style="margin-bottom:6px;">
+          <span>× × × × ×</span>
+        </div>
+        <h2>About Me<br/>Nikhil</h2>
+        <div class="role">EIE Student &amp; IoT Enthusiast</div>
+        <p>
+          Hello everyone! I'm Nikhil Prakash, a first-year B.Tech student in
+          Electronics and Instrumentation Engineering at FISAT, Angamaly.
+          I'm passionate about IoT systems and UI/UX design, and I love
+          building sensor-driven solutions that solve real-world problems.
+          Currently maintaining a CGPA of 8.47.
+        </p>
+        <div class="contact-block">
+          <div class="label">Contact me</div>
+          <div class="contact-items">
+            <span>+91 85479 12600</span>
+            <span>nikhilprakash.dev@gmail.com</span>
+            <span>linkedin.com/in/nikhilprakash-dev</span>
+            <span>github.com/nikhilprakash-dev</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ═══ NAV (semantic, hidden) ═══ -->
-  <nav>
-    <ol>
-      <li><a href="#objective">Objective</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#activities">Extracurricular</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#languages">Languages</a></li>
-      <li><a href="#declaration">Declaration</a></li>
-    </ol>
-  </nav>
+  <!-- ══════════════════════════════════
+       SLIDE 3 — SKILLS
+  ══════════════════════════════════ -->
+  <div class="slide skills-slide">
+    <div class="corner-label">Portfolio<br/>2025–2029</div>
+    <h2>Skills</h2>
+    <p class="sub">software &amp; hardware</p>
+    <div class="skill-cols">
+      <div>
+        <div class="skill-group">
+          <h3>Programming &amp; Design</h3>
+          <ul>
+            <li>Python (Basic)</li>
+            <li>HTML &amp; CSS (Basic)</li>
+            <li>Figma — UI/UX Prototyping</li>
+            <li>Wireframing</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group">
+          <h3>Hardware</h3>
+          <ul>
+            <li>ESP8266 / ESP32</li>
+            <li>Arduino Programming</li>
+            <li>LDR &amp; PIR Sensors</li>
+            <li>Circuit Analysis</li>
+            <li>Instrumentation Fundamentals</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Quick Learning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ═══ OBJECTIVE ═══ -->
-  <section id="objective">
-    <h2>Objective</h2>
-    <hr class="thin"/>
-    <p>
-      First-year B.Tech student in Electronics and Instrumentation Engineering at FISAT, Angamaly
-      (Batch of 2029), with hands-on experience in IoT systems and UI/UX design. Seeking to apply
-      skills in sensor-driven solutions and intuitive interface design to real-world engineering
-      challenges through collaborative technical projects.
-    </p>
-  </section>
-
-  <!-- ═══ EDUCATION ═══ -->
-  <section id="education">
+  <!-- ══════════════════════════════════
+       SLIDE 4 — EDUCATION
+  ══════════════════════════════════ -->
+  <div class="slide edu-slide">
     <h2>Education</h2>
-    <hr class="thin"/>
 
-    <article>
-      <div class="row">
-        <h3>Federal Institute of Science and Technology (FISAT)</h3>
-        <span class="date">2025 – 2029</span>
+    <div class="edu-entry">
+      <div class="edu-year">2029</div>
+      <div class="edu-details">
+        <h3>B.Tech — Electronics &amp; Instrumentation Engineering</h3>
+        <div class="inst">Federal Institute of Science and Technology (FISAT), Angamaly, Kerala</div>
+        <p>KTU 2024 Scheme &nbsp;·&nbsp; Expected Graduation: 2029</p>
+        <p>Member, ISTE &nbsp;·&nbsp; Member, IDEA</p>
+        <span class="grade-tag">CGPA 8.47</span>
       </div>
-      <h4>B.Tech, Electronics and Instrumentation Engineering &nbsp;·&nbsp; CGPA: 8.47 &nbsp;·&nbsp; Angamaly, Kerala</h4>
-      <ul>
-        <li>Member, ISTE — Indian Society for Technical Education (2025–2029)</li>
-        <li>Member, IDEA — Instrumentation Dextrous Etudious Association (2025–2029)</li>
-      </ul>
-    </article>
+    </div>
 
-    <article>
-      <div class="row">
-        <h3>Higher Secondary Education — Science (PCMB)</h3>
-        <span class="date">Graduated 2025</span>
+    <div class="edu-entry">
+      <div class="edu-year">2025</div>
+      <div class="edu-details">
+        <h3>Higher Secondary — Science (PCMB)</h3>
+        <div class="inst">Govt. Higher Secondary School (GHSS), Pattambi</div>
+        <p>Class Representative &amp; NSS Volunteer (2023–2025)</p>
+        <span class="grade-tag">92.17%</span>
       </div>
-      <h4>Govt. Higher Secondary School (GHSS), Pattambi &nbsp;·&nbsp; Grade: 92.17%</h4>
-      <ul>
-        <li>Class Representative and NSS Volunteer (2023–2025)</li>
-      </ul>
-    </article>
-  </section>
+    </div>
+  </div>
 
-  <!-- ═══ TECHNICAL SKILLS ═══ -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <hr class="thin"/>
-
-    <h5>Programming &amp; Design</h5>
-    <ul class="skills-list">
-      <li>Python (Basic)</li>
-      <li>HTML &amp; CSS (Basic)</li>
-      <li>Figma — UI/UX Prototyping &amp; Wireframing</li>
-      <li>Arduino Programming</li>
-    </ul>
-
-    <h5>Hardware &amp; Core</h5>
-    <ul class="skills-list">
-      <li>ESP8266 / ESP32</li>
-      <li>LDR &amp; PIR Sensors</li>
-      <li>Circuit Analysis</li>
-      <li>Instrumentation Fundamentals</li>
-    </ul>
-
-    <h5>Soft Skills</h5>
-    <h6>Key interpersonal and professional strengths</h6>
-    <table>
-      <thead>
-        <tr>
-          <th>Skill</th>
-          <th>Skill</th>
-          <th>Skill</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Problem Solving</td>
-          <td>Team Collaboration</td>
-          <td>Quick Learning</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section id="projects">
+  <!-- ══════════════════════════════════
+       SLIDE 5 — PROJECTS
+  ══════════════════════════════════ -->
+  <div class="slide projects-slide">
     <h2>Projects</h2>
-    <hr class="thin"/>
 
-    <article>
-      <div class="row">
-        <h3>Smart IoT Night Light for Elderly</h3>
-        <span class="date">FISAT</span>
-      </div>
-      <h4>ESP8266 &nbsp;·&nbsp; Arduino IDE &nbsp;·&nbsp; LDR Sensor &nbsp;·&nbsp; PIR Sensor</h4>
+    <div class="project-card">
+      <h3>Smart IoT Night Light for Elderly</h3>
+      <div class="stack">ESP8266 &nbsp;·&nbsp; Arduino IDE &nbsp;·&nbsp; LDR Sensor &nbsp;·&nbsp; PIR Sensor</div>
       <ul>
         <li>Built an ESP8266-based automated night light using LDR and PIR sensors to assist elderly users in low-light navigation.</li>
         <li>Implemented environment-aware logic to trigger lighting only on motion detection, reducing unnecessary power consumption.</li>
       </ul>
-    </article>
+    </div>
 
-    <article>
-      <div class="row">
-        <h3>Solar Coconut Dryer</h3>
-        <span class="date">FISAT</span>
-      </div>
-      <h4>Passive Solar Thermal Design</h4>
+    <div class="project-card">
+      <h3>Solar Coconut Dryer</h3>
+      <div class="stack">Passive Solar Thermal Design</div>
       <ul>
         <li>Designed and prototyped a solar-powered drying system targeted at medium-scale farmers to reduce post-harvest losses.</li>
         <li>Eliminated dependency on conventional energy sources through passive solar thermal design, lowering operational costs.</li>
       </ul>
-    </article>
-  </section>
+    </div>
+  </div>
 
-  <!-- ═══ EXTRACURRICULAR ═══ -->
-  <section id="activities">
-    <h2>Extracurricular Activities</h2>
-    <hr class="thin"/>
-    <ul>
-      <li>Member, ISTE — Indian Society for Technical Education, FISAT (2025–2029).</li>
-      <li>Member, IDEA — Instrumentation Dextrous Etudious Association, FISAT (2025–2029).</li>
-      <li>Poster Designer for college events and club campaigns.</li>
-      <li>Media Team Member — College Technical Fest.</li>
-      <li>Design Team Member — College Club.</li>
-      <li>NSS Volunteer — National Service Scheme, GHSS Pattambi (2023–2025).</li>
-    </ul>
-  </section>
+  <!-- ══════════════════════════════════
+       SLIDE 6 — ACTIVITIES + CERTIFICATIONS
+  ══════════════════════════════════ -->
+  <div class="slide">
+    <div class="act-grid">
+      <div class="act-col">
+        <h2>Activities</h2>
+        <ul>
+          <li>Member, ISTE — Indian Society for Technical Education, FISAT (2025–2029)</li>
+          <li>Member, IDEA — Instrumentation Dextrous Etudious Association, FISAT</li>
+          <li>Poster Designer — College Events &amp; Club Campaigns</li>
+          <li>Media Team Member — College Technical Fest</li>
+          <li>Design Team Member — College Club</li>
+          <li>NSS Volunteer — GHSS Pattambi (2023–2025)</li>
+        </ul>
+      </div>
+      <div class="act-col">
+        <h2>Certifications</h2>
+        <div class="cert-item">
+          <div class="cert-name">Arduino Workshop</div>
+          <div class="cert-meta">FISAT, Angamaly &nbsp;·&nbsp; 2025</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Figma UI/UX Design Workshop</div>
+          <div class="cert-meta">Online &nbsp;·&nbsp; 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ═══ CERTIFICATIONS ═══ -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <hr class="thin"/>
-
-    <figure>
-      <p><strong>Arduino Workshop</strong></p>
-      <figcaption>FISAT, Angamaly &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; [Certificate]</figcaption>
-    </figure>
-
-    <figure>
-      <p><strong>Figma UI/UX Design Workshop</strong></p>
-      <figcaption>Online &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; [Certificate]</figcaption>
-    </figure>
-  </section>
-
-  <!-- ═══ LANGUAGES (aside) ═══ -->
-  <section id="languages">
-    <h2>Languages Known</h2>
-    <hr class="thin"/>
-    <aside>
-      <p>English &nbsp;·&nbsp; Malayalam</p>
-    </aside>
-  </section>
-
-  <!-- ═══ DECLARATION (details/summary) ═══ -->
-  <section id="declaration">
-    <h2>Declaration</h2>
-    <hr class="thin"/>
-    <details open>
-      <summary>Read Declaration</summary>
-      <p>
-        I hereby declare that all the information provided above is true and correct to the best of
-        my knowledge and belief.
-      </p>
-    </details>
-  </section>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <span>Place: Palakkad, Kerala</span>
-    <span><strong>Nikhil Prakash</strong></span>
-  </footer>
+  <!-- ══════════════════════════════════
+       SLIDE 7 — THANK YOU
+  ══════════════════════════════════ -->
+  <div class="slide thankyou">
+    <div class="xmarks" style="justify-content:center; margin-bottom:2px;">
+      <span>× × × × × ×</span>
+    </div>
+    <div class="xmarks" style="justify-content:center;">
+      <span>× × × × × ×</span>
+    </div>
+    <h2>Thank You</h2>
+    <div class="contact-footer">
+      <span>+91 85479 12600</span>
+      <span>nikhilprakash.dev@gmail.com</span>
+      <span>Pattambi, Palakkad, Kerala</span>
+      <span>linkedin.com/in/nikhilprakash-dev</span>
+    </div>
+  </div>
 
 </body>
 </html>
